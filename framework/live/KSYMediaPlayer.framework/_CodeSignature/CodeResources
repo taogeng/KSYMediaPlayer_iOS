@@ -14,15 +14,19 @@
 		</data>
 		<key>Headers/KSYMoviePlayerController.h</key>
 		<data>
-		M2HARc6AEy4RrGwtLqi0B2ndUWI=
+		Y7V08jDrbmLQFR4yi1l1gyDHw6s=
 		</data>
 		<key>Headers/KSYPlayerAuth.h</key>
 		<data>
-		5gxE7S7g0phJ/FaXXBkmmhzo6uk=
+		JM5yh6ys+RSrgBXgtBcIqXhaqXs=
+		</data>
+		<key>Headers/KSYQosInfo.h</key>
+		<data>
+		4R8xOKdhadVApriBeN2JcGbBwlU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bfysxl+bpgWORu0VTm4CRHvHUjc=
+		ZFpq/fyq/V47eEod/FjlAYkYHgs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -32,25 +36,71 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/KSYMediaPlayback.h</key>
-		<data>
-		SE0jttjHQBC2/BoMJiOE9sHHSk8=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			SE0jttjHQBC2/BoMJiOE9sHHSk8=
+			</data>
+			<key>hash2</key>
+			<data>
+			AD5pgPTte880nDgM3QklrcC2N1FOWSBjfbft+goIVZ8=
+			</data>
+		</dict>
 		<key>Headers/KSYMediaPlayer.h</key>
-		<data>
-		BzXxLyN1WAUTAAx2uDIWwQfj8jw=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			BzXxLyN1WAUTAAx2uDIWwQfj8jw=
+			</data>
+			<key>hash2</key>
+			<data>
+			FGTS3jAcLdCK1BLjpwxrRPmNjCSPkl54vzJS5KgiX3I=
+			</data>
+		</dict>
 		<key>Headers/KSYMoviePlayerController.h</key>
-		<data>
-		M2HARc6AEy4RrGwtLqi0B2ndUWI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y7V08jDrbmLQFR4yi1l1gyDHw6s=
+			</data>
+			<key>hash2</key>
+			<data>
+			WNNAjmqw3JNcfp03n6j6Jhs/KrHUVaHCQ81o0y0rxKI=
+			</data>
+		</dict>
 		<key>Headers/KSYPlayerAuth.h</key>
-		<data>
-		5gxE7S7g0phJ/FaXXBkmmhzo6uk=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			JM5yh6ys+RSrgBXgtBcIqXhaqXs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Io4Y58pXymBc8Uu+kWjdBkVgKI6XxoVKzM67W682VCM=
+			</data>
+		</dict>
+		<key>Headers/KSYQosInfo.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4R8xOKdhadVApriBeN2JcGbBwlU=
+			</data>
+			<key>hash2</key>
+			<data>
+			JM1p123ToRnPEyLf4mqhBB9VagLhJMhp8jELWAQvtig=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		PF9R9LqgAbGCZYH2uQsVU6jlUl8=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			PF9R9LqgAbGCZYH2uQsVU6jlUl8=
+			</data>
+			<key>hash2</key>
+			<data>
+			JQnaQB2wakiLFWCiqhwRvvoth8/ic5BfEO2oHrC+jGI=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

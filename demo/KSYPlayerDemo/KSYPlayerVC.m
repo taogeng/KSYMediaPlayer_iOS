@@ -2,7 +2,7 @@
 //  KSYPlayerVC.m
 //
 //  Created by zengfanping on 11/3/15.
-//  Copyright (c) 2015 kingsoft. All rights reserved.
+//  Copyright (c) 2015 zengfanping. All rights reserved.
 //
 
 #import "KSYPlayerVC.h"
@@ -11,6 +11,7 @@
 
 @interface KSYPlayerVC ()
 @property (strong, nonatomic) NSURL *url;
+@property (strong, nonatomic) NSURL *reloadUrl;
 @property (strong, nonatomic) KSYMoviePlayerController *player;
 @end
 
@@ -23,18 +24,33 @@
     UIView *videoView;
     UIButton *btnPlay;
     UIButton *btnPause;
+    UIButton *btnReload;
     UIButton *btnStop;
     UIButton *btnQuit;
     UILabel  *lableVPP;
     UISwitch *switchVPP;
+    UISwitch *switchLog;
+    UIButton *getQosBtn;
+    UISwitch  *switchHwCodec;
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    _url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+    //_url = [NSURL URLWithString:@"http://ksy.vcloud.sdk.ks3-cn-beijing.ksyun.com/TestVideo/gif_test_0319_1730.flv"];
+    _reloadUrl = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+//     _url = [NSURL URLWithString:@"http://120.132.75.127/vod/mp4/mtv_x264_1920x1080_30_1000K.mp4"];
+    //_url = [NSURL URLWithString:@"http://121.42.58.232:8980/hls_test/1.m3u8"];
+
+    //_url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
 //    _url = [NSURL URLWithString:@"rtmp://test.rtmplive.ks-cdn.com/live/fpzeng"];
     //_url = [NSURL URLWithString:@"http://121.40.205.48:8091/demo/h265.flv"];
+        _url = [NSURL URLWithString:@"http://120.132.75.127/vod/flv/bbb_720p_qy265.flv"];
+       // _url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+    //_url = [NSURL URLWithString:@"http://ksy.vcloud.sdk.ks3-cn-beijing.ksyun.com/TestVideo/gif_test_0319_1730.flv"];
+    //_url = [NSURL URLWithString:@"http://gifshow.rtmplive.ks-cdn.com/live/AWLW7_ePxNM.flv"];
+    
     [self setupObservers];
     [self initKSYAuth];
 }
@@ -56,6 +72,14 @@
     btnPause.backgroundColor = [UIColor lightGrayColor];
     [btnPause addTarget:self action:@selector(onPauseVideo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnPause];
+    //add pause button
+    btnReload = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btnReload setTitle:@"reload" forState: UIControlStateNormal];
+    btnReload.backgroundColor = [UIColor lightGrayColor];
+    [btnReload addTarget:self action:@selector(onReloadVideo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnReload];
+
+    
     //add stop button
     btnStop = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [btnStop setTitle:@"stop" forState: UIControlStateNormal];
@@ -69,6 +93,12 @@
     [btnQuit addTarget:self action:@selector(onQuit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnQuit];
     
+    getQosBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [getQosBtn setTitle:@"QosInfo" forState: UIControlStateNormal];
+    getQosBtn.backgroundColor = [UIColor lightGrayColor];
+    [getQosBtn addTarget:self action:@selector(getQosBtnEvent) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:getQosBtn];
+
     stat = [[UILabel alloc] init];
     stat.backgroundColor = [UIColor clearColor];
     stat.textColor = [UIColor redColor];
@@ -77,21 +107,30 @@
     [self.view addSubview:stat];
     
     lableVPP = [[UILabel alloc] init];
-    lableVPP.text = @"视频后处理";
+    lableVPP.text = @"开启硬件解码";
     lableVPP.textColor = [UIColor lightGrayColor];
     [self.view addSubview:lableVPP];
 
-    switchVPP = [[UISwitch alloc] init];
-    [self.view addSubview:switchVPP];
-    switchVPP.on = YES;
+//    switchVPP = [[UISwitch alloc] init];
+//    [self.view addSubview:switchVPP];
+//    switchVPP.on = YES;
+    
+//    switchLog = [[UISwitch alloc] init];
+//    [switchLog addTarget:self action:@selector(switchControlEvent:) forControlEvents:UIControlEventValueChanged];
+//    [self.view addSubview:switchLog];
+//    switchLog.on = YES;
+    
+    switchHwCodec = [[UISwitch alloc] init];
+    [self.view  addSubview:switchHwCodec];
+    switchHwCodec.on = YES;
     
     [self layoutUI];
 }
 - (void) layoutUI {
     CGFloat wdt = self.view.bounds.size.width;
     CGFloat hgt = self.view.bounds.size.height;
-    CGFloat gap = 10;
-    CGFloat btnWdt = ( (wdt-gap) / 4) - gap;
+    CGFloat gap = 20;
+    CGFloat btnWdt = ( (wdt-gap) / 5) - gap;
     CGFloat btnHgt = 30;
     CGFloat xPos = 0;
     CGFloat yPos = 0;
@@ -101,13 +140,17 @@
     lableVPP.frame =CGRectMake(xPos, yPos, btnWdt * 2, btnHgt);
     xPos += gap + lableVPP.frame.size.width;
     switchVPP.frame = CGRectMake(xPos, gap, btnWdt, btnHgt);
-    
+    switchLog.frame = CGRectMake(xPos + btnWdt + 50, gap, btnWdt, btnHgt);
+    switchHwCodec.frame = CGRectMake(xPos, gap, btnWdt, btnHgt);
+
     videoView.frame = CGRectMake(0, 0, wdt, hgt);
     xPos = gap;
     yPos = hgt - btnHgt - gap;
     btnPlay.frame = CGRectMake(xPos, yPos, btnWdt, btnHgt);
     xPos += gap + btnWdt;
     btnPause.frame = CGRectMake(xPos, yPos, btnWdt, btnHgt);
+    xPos += gap + btnWdt;
+    btnReload.frame = CGRectMake(xPos, yPos, btnWdt, btnHgt);
     xPos += gap + btnWdt;
     btnStop.frame = CGRectMake(xPos, yPos, btnWdt, btnHgt);
     xPos += gap + btnWdt;
@@ -116,6 +159,7 @@
     // top row 3 left
     yPos += (gap + btnHgt);
     xPos = gap;
+    getQosBtn.frame = CGRectMake(xPos, btnStop.frame.origin.y - 40, btnWdt, btnHgt);
 
     
 }
@@ -125,7 +169,13 @@
     return YES;
 }
 
+- (void)switchControlEvent:(UISwitch *)switchControl
+{
+    if (_player) {
+        _player.shouldEnableKSYStatModule = switchControl.isOn;
 
+    }
+}
 - (NSString *)MD5:(NSString*)raw {
     
     const char * pointer = [raw UTF8String];
@@ -179,7 +229,9 @@
         [self StartTimer];
     }
     if (MPMoviePlayerPlaybackStateDidChangeNotification ==  notify.name) {
+        NSLog(@"------------------------");
         NSLog(@"player playback state: %ld", (long)_player.playbackState);
+        NSLog(@"------------------------");
     }
     if (MPMoviePlayerLoadStateDidChangeNotification ==  notify.name) {
         NSLog(@"player load state: %ld", (long)_player.loadState);
@@ -204,7 +256,17 @@
         NSLog(@"buffer monitor  result: \n   empty count: %d, lasting: %f seconds",
               (int)_player.bufferEmptyCount,
               _player.bufferEmptyDuration);
-        stat.text = [NSString stringWithFormat:@"player finish"];
+        int reason = [[[notify userInfo] valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue];
+        if (reason == 0) {
+            stat.text = [NSString stringWithFormat:@"player finish"];
+
+        }else if (reason == 1){
+            stat.text = [NSString stringWithFormat:@"player Error"];
+
+        }else if (reason == 2){
+            stat.text = [NSString stringWithFormat:@"player userExited"];
+
+        }
         [self StopTimer];
     }
     if (MPMovieNaturalSizeAvailableNotification ==  notify.name) {
@@ -270,11 +332,22 @@
 }
 - (IBAction)onPlayVideo:(id)sender {
     if (_player) {
+        if (switchLog.isOn == NO) {
+            _player.shouldEnableKSYStatModule = NO;
+        }
         [_player play];
         [self StartTimer];
         return;
     }
-    _player =    [[KSYMoviePlayerController alloc] initWithContentURL: _url];
+    _player = [[KSYMoviePlayerController alloc] initWithContentURL: _url];
+    if (switchLog.isOn == NO) {
+        _player.shouldEnableKSYStatModule = NO;
+    }
+    _player.logBlock = ^(NSString *logJson){
+        
+        NSLog(@"logJson is %@",logJson);
+    };
+
     stat.text = [NSString stringWithFormat:@"url %@", _url];
     _player.controlStyle = MPMovieControlStyleNone;
     [_player.view setFrame: videoView.bounds];  // player's frame must match parent's
@@ -283,11 +356,18 @@
     videoView.autoresizesSubviews = TRUE;
     _player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _player.shouldAutoplay = TRUE;
-//  default bufferTimeMax is 2 seconds
 //    _player.bufferTimeMax = 5;
     _player.shouldEnableVideoPostProcessing = switchVPP.on;
     _player.scalingMode = MPMovieScalingModeAspectFit;
+    //_player.shouldUseHWCodec = switchHwCodec.isOn;
+    //[_player setTimeout:10];
     [_player prepareToPlay];
+}
+
+- (IBAction)onReloadVideo:(id)sender {
+    if (_player) {
+        [_player reload:_reloadUrl];
+    }
 }
 
 - (IBAction)onPauseVideo:(id)sender {
@@ -355,5 +435,39 @@
     [self dismissViewControllerAnimated:FALSE completion:nil];
 }
 
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        
+        switch (receivedEvent.subtype) {
+                
+            case UIEventSubtypeRemoteControlPlay:
+                [_player play];
+                NSLog(@"play");
+                break;
+                
+            case UIEventSubtypeRemoteControlPause:
+                [_player pause];
+                NSLog(@"pause");
+                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+- (void)getQosBtnEvent
+{
+    KSYQosInfo *info = _player.qosInfo;
+    NSLog(@"\n audioBufferByteLength is %d \n audioBufferTimeLength is %d \n audioTotalDataSize is %lld \n videoBufferByteLength is %d \n videoBufferTimeLength is %d \n  videoTotalDataSize is %lld \n totalDataSize is %lld \n",info.audioBufferByteLength,info.audioBufferTimeLength,info.audioTotalDataSize,info.videoBufferByteLength,info.videoBufferTimeLength,info.videoTotalDataSize,info.totalDataSize);
+}
 
 @end
