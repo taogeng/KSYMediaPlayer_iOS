@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/KSYMoviePlayerController.h</key>
 		<data>
-		Y7V08jDrbmLQFR4yi1l1gyDHw6s=
+		LpTPfpWfYAOXtw6EaOdYRRFis0c=
 		</data>
 		<key>Headers/KSYPlayerAuth.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZFpq/fyq/V47eEod/FjlAYkYHgs=
+		k8v8q7zT0XWEJcpNOlMlfwj/udU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -36,71 +36,29 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/KSYMediaPlayback.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			SE0jttjHQBC2/BoMJiOE9sHHSk8=
-			</data>
-			<key>hash2</key>
-			<data>
-			AD5pgPTte880nDgM3QklrcC2N1FOWSBjfbft+goIVZ8=
-			</data>
-		</dict>
+		<data>
+		SE0jttjHQBC2/BoMJiOE9sHHSk8=
+		</data>
 		<key>Headers/KSYMediaPlayer.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BzXxLyN1WAUTAAx2uDIWwQfj8jw=
-			</data>
-			<key>hash2</key>
-			<data>
-			FGTS3jAcLdCK1BLjpwxrRPmNjCSPkl54vzJS5KgiX3I=
-			</data>
-		</dict>
+		<data>
+		BzXxLyN1WAUTAAx2uDIWwQfj8jw=
+		</data>
 		<key>Headers/KSYMoviePlayerController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Y7V08jDrbmLQFR4yi1l1gyDHw6s=
-			</data>
-			<key>hash2</key>
-			<data>
-			WNNAjmqw3JNcfp03n6j6Jhs/KrHUVaHCQ81o0y0rxKI=
-			</data>
-		</dict>
+		<data>
+		LpTPfpWfYAOXtw6EaOdYRRFis0c=
+		</data>
 		<key>Headers/KSYPlayerAuth.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JM5yh6ys+RSrgBXgtBcIqXhaqXs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Io4Y58pXymBc8Uu+kWjdBkVgKI6XxoVKzM67W682VCM=
-			</data>
-		</dict>
+		<data>
+		JM5yh6ys+RSrgBXgtBcIqXhaqXs=
+		</data>
 		<key>Headers/KSYQosInfo.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4R8xOKdhadVApriBeN2JcGbBwlU=
-			</data>
-			<key>hash2</key>
-			<data>
-			JM1p123ToRnPEyLf4mqhBB9VagLhJMhp8jELWAQvtig=
-			</data>
-		</dict>
+		<data>
+		4R8xOKdhadVApriBeN2JcGbBwlU=
+		</data>
 		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PF9R9LqgAbGCZYH2uQsVU6jlUl8=
-			</data>
-			<key>hash2</key>
-			<data>
-			JQnaQB2wakiLFWCiqhwRvvoth8/ic5BfEO2oHrC+jGI=
-			</data>
-		</dict>
+		<data>
+		PF9R9LqgAbGCZYH2uQsVU6jlUl8=
+		</data>
 	</dict>
 	<key>rules</key>
 	<dict>
