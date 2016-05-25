@@ -320,7 +320,7 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
  @abstract 是否循环播放
  @discussion 默认不循环
  * 只在[prepareToPlay]([KSYMediaPlayback prepareToPlay]) 调用前设置生效；
- 只有点播生效
+ 只有点播生效,直播场景请勿设置
  @since Available in KSYMoviePlayerController 1.3.1 and later.
  */
 @property(nonatomic) BOOL shouldLoop;
