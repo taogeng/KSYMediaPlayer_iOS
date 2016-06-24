@@ -44,6 +44,10 @@ typedef NS_ENUM(NSInteger, KSYMPErrorCode) {
     KSYMPErrorCodeUnsupportVideoCodec   = -10012,
 	///不支持的音频编码类型
     KSYMPErrorCodeUnsupportAudioCodec   = -10013,
+    ///视频解码失败
+    KSYMPErrorCodeVideoDecodeFailed   	= -10014,
+    ///音频解码失败
+    KSYMPErrorCodeAudioDecodeFailed  	= -10015,
 };
 
 //----------------------------------------------
