@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/KSYMediaPlayer.h</key>
 		<data>
-		nu62cvU1U2fm7AyDEZp9OYS5tjA=
+		TvFzxBFuHwPG0d7xdjhQ4qWfauk=
 		</data>
 		<key>Headers/KSYMoviePlayerController.h</key>
 		<data>
-		T3d/L3r6nlc0cb+mMrReT3iDu9I=
+		LNjPxRh36dbaVpaeKbeR0kMs1ik=
 		</data>
 		<key>Headers/KSYMoviePlayerDefines.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UFvum2ZS3XnREU2pBLFpvv+/yao=
+		qRtW0S+wW+xHW/OW1PSgYZ5B2Hk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,22 +50,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nu62cvU1U2fm7AyDEZp9OYS5tjA=
+			TvFzxBFuHwPG0d7xdjhQ4qWfauk=
 			</data>
 			<key>hash2</key>
 			<data>
-			hC6sSLyuEfo2Isd3A85wBzNPKLLOJzlIfS8JtU35fGY=
+			K7znCUFlWLK+fCU0PUnk7cUq5mVj98aQVf2HWTihVtI=
 			</data>
 		</dict>
 		<key>Headers/KSYMoviePlayerController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T3d/L3r6nlc0cb+mMrReT3iDu9I=
+			LNjPxRh36dbaVpaeKbeR0kMs1ik=
 			</data>
 			<key>hash2</key>
 			<data>
-			UJRpJqJibNZgb8rnV5SSGna1AFyjCm4//oKjhZZ6jwI=
+			nphntgVSMlpoNTp1glqVZ1EcO56qaWyfSAIqJpzSk6g=
 			</data>
 		</dict>
 		<key>Headers/KSYMoviePlayerDefines.h</key>
