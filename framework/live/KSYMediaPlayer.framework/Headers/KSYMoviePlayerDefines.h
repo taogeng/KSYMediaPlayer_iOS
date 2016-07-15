@@ -48,6 +48,8 @@ typedef NS_ENUM(NSInteger, KSYMPErrorCode) {
     KSYMPErrorCodeVideoDecodeFailed   	= -10014,
     ///音频解码失败
     KSYMPErrorCodeAudioDecodeFailed  	= -10015,
+    ///次数过多的3xx跳转(8次)
+    KSYMPErrorCode3xxOverFlow               = -10016,
 };
 
 //----------------------------------------------
