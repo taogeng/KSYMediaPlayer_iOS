@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/KSYMediaInfo.h</key>
+		<data>
+		zG7HiRTJXeu5CMJGGMzTVU9qpkw=
+		</data>
+		<key>Headers/KSYMediaInfoProber.h</key>
+		<data>
+		A6/fg9kyspgnIezLDRmQyYXM69Q=
+		</data>
 		<key>Headers/KSYMediaPlayback.h</key>
 		<data>
 		SE0jttjHQBC2/BoMJiOE9sHHSk8=
@@ -14,7 +22,7 @@
 		</data>
 		<key>Headers/KSYMoviePlayerController.h</key>
 		<data>
-		WzpVDASBHjQ+dJLdtROV6qi3viY=
+		HFgcYx4zaOymt+Yq+mSl1SQJ6mA=
 		</data>
 		<key>Headers/KSYMoviePlayerDefines.h</key>
 		<data>
@@ -35,6 +43,28 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/KSYMediaInfo.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zG7HiRTJXeu5CMJGGMzTVU9qpkw=
+			</data>
+			<key>hash2</key>
+			<data>
+			g/NoOOn3SVPajAi1L6guqHUxCYpZ7guc0P+6V2x45aw=
+			</data>
+		</dict>
+		<key>Headers/KSYMediaInfoProber.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			A6/fg9kyspgnIezLDRmQyYXM69Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			wsmATqnXZepc4PXKN4DQKOvMtk3bvZkW36zJA+uM618=
+			</data>
+		</dict>
 		<key>Headers/KSYMediaPlayback.h</key>
 		<dict>
 			<key>hash</key>
@@ -61,11 +91,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WzpVDASBHjQ+dJLdtROV6qi3viY=
+			HFgcYx4zaOymt+Yq+mSl1SQJ6mA=
 			</data>
 			<key>hash2</key>
 			<data>
-			gNu9h6IIBGvNjYZQOwnSc28zztbFcmemkmOdR58RZOY=
+			d0GTnWwlkm+wvHG6AU1idp3F47JjM0qn8ck7o2IBDhE=
 			</data>
 		</dict>
 		<key>Headers/KSYMoviePlayerDefines.h</key>
