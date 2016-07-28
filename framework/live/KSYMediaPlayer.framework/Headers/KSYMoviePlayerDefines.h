@@ -52,4 +52,14 @@ typedef NS_ENUM(NSInteger, KSYMPErrorCode) {
     KSYMPErrorCode3xxOverFlow               = -10016,
 };
 
+/**
+ * status类型
+ */
+typedef NS_ENUM(NSInteger, MPMovieStatus) {
+    ///视频解码出错
+    MPMovieStatusVideoDecodeWrong,
+    ///音频解码出错
+    MPMovieStatusAudioDecodeWrong,
+};
+
 //----------------------------------------------
