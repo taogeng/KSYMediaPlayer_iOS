@@ -352,11 +352,27 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
 
 /**
  @abstract 是否静音
- @discussion 默认不静音，在播放过程中设置生效
+ @discussion 
+  * 默认不静音
+  * [prepareToPlay]([KSYMediaPlayback prepareToPlay])方法前设置即生效，也可以在播放过程中动态切换
+ 
  @warning 该方法由金山云引入，不是原生系统接口
  @since Available in KSYMoviePlayerController 1.3.1 and later.
  */
 @property(nonatomic) BOOL shouldMute;
+
+/**
+ @abstract 是否隐藏视频
+ @discussion 
+ * 默认不隐藏
+ * 隐藏视频时播放器本身不再进行渲染动作
+ * 如果设置了videoDataBlock回调，隐藏视频时数据会照常上抛
+ * [prepareToPlay]([KSYMediaPlayback prepareToPlay])方法前设置即生效，也可以在播放过程中动态切换
+ 
+ @warning 该方法由金山云引入，不是原生系统接口
+ @since Available in KSYMoviePlayerController 1.6.1 and later.
+ */
+@property(nonatomic) BOOL shouldHideVideo;
 
 /**
  @abstract 是否循环播放
@@ -490,7 +506,7 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
  @warning 该方法由金山云引入，不是原生系统接口
  @since Available in KSYMoviePlayerController 1.0 and later.
  */
-- (void)reload:(NSURL *)aUrl is_flush:(bool)is_flush;
+- (void)reload:(NSURL *)aUrl flush:(bool)flush;
 
 /**
  @abstract 获取当前播放的pts

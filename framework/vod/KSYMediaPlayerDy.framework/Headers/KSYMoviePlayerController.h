@@ -352,11 +352,27 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
 
 /**
  @abstract 是否静音
- @discussion 默认不静音，在播放过程中设置生效
+ @discussion 
+  * 默认不静音
+  * [prepareToPlay]([KSYMediaPlayback prepareToPlay])方法前设置即生效，也可以在播放过程中动态切换
+ 
  @warning 该方法由金山云引入，不是原生系统接口
  @since Available in KSYMoviePlayerController 1.3.1 and later.
  */
 @property(nonatomic) BOOL shouldMute;
+
+/**
+ @abstract 是否隐藏视频
+ @discussion 
+ * 默认不隐藏
+ * 隐藏视频时播放器本身不再进行渲染动作
+ * 如果设置了videoDataBlock回调，隐藏视频时数据会照常上抛
+ * [prepareToPlay]([KSYMediaPlayback prepareToPlay])方法前设置即生效，也可以在播放过程中动态切换
+ 
+ @warning 该方法由金山云引入，不是原生系统接口
+ @since Available in KSYMoviePlayerController 1.6.1 and later.
+ */
+@property(nonatomic) BOOL shouldHideVideo;
 
 /**
  @abstract 是否循环播放
@@ -416,7 +432,7 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
  @discussion YES:开始播放时，会打断其他的后台播放音频，也会被其他音频播放打断
  @discussion NO: 可以与其他后台播放共存，相互之间不会被打断
  @discussion 默认为YES
- @see AVAudioSessionCategoryOptionMixWithOthers
+ @since Available in KSYMoviePlayerController 1.5.3 and later.
  */
 @property(nonatomic) BOOL  bInterruptOtherAudio;
 
@@ -478,7 +494,7 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
 /**
  @abstract 重新启动拉流
  @param aUrl 视频播放地址，该地址可以是本地地址或者服务器地址.如果为nil，则使用前一次播放地址
- @param is_flush 是否清除上一个url的缓冲区内容，该值为FALSE不清除，为TRUE则清除
+ @param flush 是否清除上一个url的缓冲区内容，该值为FALSE不清除，为TRUE则清除
  @discussion 调用场景如下：
  
  * 当播放器调用方发现卡顿时，可以主动调用
@@ -490,7 +506,7 @@ typedef void (^KSYPlyAudioDataBlock)(CMSampleBufferRef sampleBuffer);
  @warning 该方法由金山云引入，不是原生系统接口
  @since Available in KSYMoviePlayerController 1.0 and later.
  */
-- (void)reload:(NSURL *)aUrl is_flush:(bool)is_flush;
+- (void)reload:(NSURL *)aUrl flush:(bool)flush;
 
 /**
  @abstract 获取当前播放的pts
