@@ -41,5 +41,14 @@
     size of total audio and video data since playing. unit: byte
  */
 @property (nonatomic, assign)int64_t totalDataSize;
+/**
+    video decode frame count per second
+ */
+@property (nonatomic, assign)float videoDecodeFPS;
+/**
+    video refresh frame count per second
+ */
+@property (nonatomic, assign)float videoRefreshFPS;
+
 
 @end

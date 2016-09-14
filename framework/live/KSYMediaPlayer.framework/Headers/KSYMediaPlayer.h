@@ -2,12 +2,12 @@
 //  KSYMediaPlayer.h
 //  KSYMediaPlayer
 //
-//  Created by zengfanping on 12/7/15.
-//  Copyright © 2015 kingsoft. All rights reserved.
+//  Created by 施雪梅 on 16/8/31.
+//  Copyright © 2016年 施雪梅. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "KSYMoviePlayerController.h"
+#import "KSYMediaPlayer/KSYMoviePlayerController.h"
 
 //! Project version number for KSYMediaPlayer.
 FOUNDATION_EXPORT double KSYMediaPlayerVersionNumber;

@@ -1,21 +1,20 @@
 //
-//  KSYMediaDynamic.h
-//  KSYMediaDynamic
+//  KSYMediaPlayerDy.h
+//  KSYMediaPlayerDy
 //
-//  Created by zengfanping on 6/27/16.
-//  Copyright © 2016 bilibili. All rights reserved.
+//  Created by 施雪梅 on 16/8/31.
+//  Copyright © 2016年 施雪梅. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <KSYMediaPlayerDy/KSYMoviePlayerController.h>
-#import <KSYMediaPlayerDy/KSYMediaPlayback.h>
 
-//! Project version number for KSYMediaDynamic.
-FOUNDATION_EXPORT double KSYMediaDynamicVersionNumber;
+//! Project version number for KSYMediaPlayerDy.
+FOUNDATION_EXPORT double KSYMediaPlayerDyVersionNumber;
 
-//! Project version string for KSYMediaDynamic.
-FOUNDATION_EXPORT const unsigned char KSYMediaDynamicVersionString[];
+//! Project version string for KSYMediaPlayerDy.
+FOUNDATION_EXPORT const unsigned char KSYMediaPlayerDyVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <KSYMediaDynamic/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <KSYMediaPlayerDy/PublicHeader.h>
 
 
